@@ -1,0 +1,17 @@
+{
+  "name": "sloik-pozytywow",
+  "version": "1.0.0",
+  "description": "Klasowa skrzynka pozytywów",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "xlsx": "^0.18.5",
+    "qrcode": "^1.5.3",
+    "crypto": "^1.0.1",
+    "path": "^0.12.7"
+  }
+}
