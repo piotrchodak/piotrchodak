@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-image: url('background.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    overflow: hidden;
+}
+
+.teacher-view {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: calc(100vh - 160px);
+}
+
+.jar-container {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+.glass-jar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0%, rgba(220, 235, 255, 0.4) 80%, rgba(200, 220, 240, 0.6) 100%);
+    border: 4px solid rgba(255, 255, 255, 0.7);
+    border-radius: 60px / 40px;
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.9),
+        inset 0 0 50px rgba(0, 0, 0, 0.1),
+        inset 0 -30px 40px rgba(150, 180, 210, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.jar-lid {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 55px;
+    background: linear-gradient(to right, #888 0%, #bbb 15%, #eee 45%, #fff 50%, #eee 55%, #bbb 85%, #888 100%);
+    border-radius: 15px 15px 5px 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 8px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+.jar-lid::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.jar-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    perspective: 1000px;
+    overflow: hidden;
+    border-radius: 60px / 40px;
+}
+
+.jar-reflection {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    border-radius: 50px;
+    background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.5) 40%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.8;
+}
+
+.sticky-note {
+    position: absolute;
+    padding: 15px;
+    width: 140px;
+    min-height: 100px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.1rem;
+    color: #222;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 2px 15px 5px 15px;
+    animation: fallIn 0.8s ease-out forwards;
+    word-wrap: break-word;
+    background-color: #fffdc0; 
+    transform-origin: center;
+}
+
+@keyframes fallIn {
+    from {
+        top: -150px;
+        opacity: 0;
+        transform: rotate(0deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 300px;
+}
+
+.qr-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.manual-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #444;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    word-break: break-all;
+}
+
+#link-text {
+    font-weight: bold;
+    color: #222;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.branding-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 20px;
+    pointer-events: auto;
+}
+
+.footer-logo {
+    height: 25px;
+    width: auto;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.footer-url {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.footer-url:hover {
+    color: #e0e0e0;
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+.download-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    transition: transform 0.2s, background-color 0.2s;
+    pointer-events: auto;
+}
+
+.download-btn:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+}
+
+.download-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.student-view {
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.student-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.student-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.student-container p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+button#sendBtn {
+    width: 100%;
+    padding: 15px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button#sendBtn:hover {
+    background-color: #357abd;
+}
+
+#successMessage {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj Pozytyw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="student-view">
+    <div class="student-container">
+        <h2>Wrzuć coś miłego do skrzynki!</h2>
+        <p>Twój wpis jest w 100% anonimowy.</p>
+        
+        <textarea id="noteInput" placeholder="Napisz tutaj coś pozytywnego... (np. Dzięki za pomoc z matmą!)" maxlength="150"></textarea>
+        
+        <button id="sendBtn">Wyślij pozytyw!</button>
+
+        <div id="successMessage" class="hidden">Wysłano! Dzięki! 👍</div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="student.js"></script>
+</body>
+</html>
